@@ -1,0 +1,16 @@
+
+---
+
+- hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+
+  - name: install and update packages
+    package:
+      update_cache: yes
+      name: 
+        - httpd
+        - php
+        - nano
+      state: latest
