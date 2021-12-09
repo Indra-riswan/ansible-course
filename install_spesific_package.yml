@@ -1,0 +1,15 @@
+---
+
+- hosts: all
+  become: true
+  gather_facts: false
+  vars_prompt:
+    - name: package
+      prompt: "Masukan Nama Package"
+      private: no
+
+  tasks:
+    - name: Install {{ package }} package
+      package:
+        name: "{{ package }}"
+        state: latest 

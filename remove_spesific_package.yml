@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  become: true
+  gather_facts: false
+
+  vars_prompt:
+    - name: remove-package
+      prompt: "Nama Package Yang Akan di Remove"
+      private: no
+
+  tasks:
+    - name: Remove {{ remove-package }} package
+      package:
+        name: "{{ remove-package }}"
+        state: absent
+
