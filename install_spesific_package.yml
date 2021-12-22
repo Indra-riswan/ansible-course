@@ -2,7 +2,7 @@
 
 - hosts: all
   become: true
-  gather_facts: false
+  gather_facts: true
   vars_prompt:
     - name: package
       prompt: "Masukan Nama Package"
