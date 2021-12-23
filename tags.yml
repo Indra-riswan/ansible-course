@@ -1,0 +1,46 @@
+---
+
+- hosts: all
+  become: true
+  gather_facts: true
+  
+  tasks:
+
+  - name: install all update server
+    package:
+      update_only: yes
+      update_cache: yes
+    tags: always 
+
+- hosts: webserver
+  become: true
+
+  tasks:
+
+  - name: install web server http centos
+    package: 
+      name: httpd
+      state: latest
+    
+  - name: start and enable webserver
+    ansible.builtin.service:
+      enabled: true
+      name: httpd
+      state: started
+    tags: install_and_enabled_httpd
+
+- hosts: database
+  become: true
+
+  tasks: 
+
+  - name: install mariadb database package
+    package: 
+      name: mariadb
+      state: latest
+    tags: install_mariadb
+
+
+
+
+
