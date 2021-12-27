@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+//variable
+$butoonColor: #e3b23c;
+$textColor: #423e37;
+
+//body
+body{
+    font-family:'Open Sans', sans-serif;
+}
+
+//navbar
+.costum-nav{
+    .container-fluid{
+        a{
+            font-weight: 700;
+            margin-right: 3em;
+            text-transform: uppercase;
+            color: $textColor;
+        }
+    }
+#navbarNavAltMarkup{
+    .navbar-nav{
+        .nav-link{
+            font-weight: 400;
+            font-size: small;
+            color: $textColor;
+        }
+        .sign-up-btn{
+            font-weight: 700;
+        }
+    }
+}
+}
+
+//conten
+
+.cus-con{
+    .cas-col{
+        margin-top: 10em;
+
+        h1{
+            text-transform: uppercase;
+            color: $textColor;
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+        a{
+            background-color: $butoonColor;
+            color: $textColor;
+            border: 0;
+            margin-top: 1em;
+        }
+    }
+}

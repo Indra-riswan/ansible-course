@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.costum-nav .container-fluid a {
+  font-weight: 700;
+  margin-right: 3em;
+  text-transform: uppercase;
+  color: #423e37;
+}
+
+.costum-nav #navbarNavAltMarkup .navbar-nav .nav-link {
+  font-weight: 400;
+  font-size: small;
+  color: #423e37;
+}
+
+.costum-nav #navbarNavAltMarkup .navbar-nav .sign-up-btn {
+  font-weight: 700;
+}
+
+.cus-con .cas-col {
+  margin-top: 10em;
+}
+
+.cus-con .cas-col h1 {
+  text-transform: uppercase;
+  color: #423e37;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.cus-con .cas-col a {
+  background-color: #e3b23c;
+  color: #423e37;
+  border: 0;
+  margin-top: 1em;
+}
+/*# sourceMappingURL=style.css.map */
