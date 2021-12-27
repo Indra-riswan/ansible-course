@@ -1,0 +1,13 @@
+---
+
+- hosts: webserver
+  become: true
+  gather_facts: true
+
+  tasks: 
+  - name: edit file 
+    tags: edit
+    lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^#ServerName'
+      line: ServerName www.projectuas.local
