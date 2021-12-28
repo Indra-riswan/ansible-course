@@ -1,0 +1,23 @@
+--- 
+
+- hosts: all
+  become: true
+  gather_facts: true
+  
+  pre_tasks:
+ 
+  - name: update repository (CentOS)
+    yum: 
+      update_cache: yes
+    changed_when: false
+    tags: always
+
+- hosts: webserver
+  become: true
+  roles:
+    - webserver
+
+- hosts: database
+  become: true
+  roles: 
+    - database

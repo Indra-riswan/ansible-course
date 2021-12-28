@@ -1,0 +1,20 @@
+- name: install apache CentOS
+  yum:
+    name: httpd
+    state: latest
+  tags: apache
+
+- name: enable and start httpd
+  service:
+    name: httpd
+    enabled: yes
+    state: started
+  tags: enable_apache
+
+- name: copy landing page web to apache
+  copy:
+    src: files/
+    dest: /var/www/html/
+    owner: root
+    group: root
+    mode: 0755

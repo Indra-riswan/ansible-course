@@ -1,0 +1,77 @@
+@import url(../scss/sary-soft/SarySoft.otf);
+@import url(../scss/sary-soft/SarySoftExtraLight.otf);
+@import url(../scss/sary-soft/SarySoftLight.otf);
+@import url(../scss/sary-soft/SarySoftSemiBlod.otf);
+
+//variable
+
+$primaryColor: #5DC7BE;
+$textColor: #F6F6F7;
+
+//body
+
+
+body{
+    font-style: 'SarySoftSemiBlod.otf';
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    
+}
+
+// navbar
+.costum-nav {
+    .container-fluid {
+        .navbar-brand {
+            img {
+                height: 2em;
+                width: 2em;
+                border-radius: 10px;
+            }
+            span {
+                color: $textColor;
+                padding-left: 5px;
+                font-size: 1.4rem;
+                font-style: 'SarySoftSemiBlod.otf';
+            }
+        }
+        #navbarNav {
+            .navbar-nav {
+                .nav-item{
+                    .nav-link{
+                        color: $textColor;
+                        margin-left: 1.5em;
+                    }
+                }
+                
+            }
+        }
+    }
+}
+//content
+
+.costum-content{
+    margin-top: 7em;
+    h1{
+        font-style: 'SarySoftSemiBlod.otf';
+        color: $textColor;
+        text-transform: uppercase;
+        border: 3px 5px;
+        
+    }
+    p{
+        font-style: 'SarySoftExtraLight.otf';
+        color: $textColor;
+        border: 1px 3px;
+
+    }
+    a{
+        background-color: $textColor;
+        border: 0;
+        border-radius: 3em;
+        color: $primaryColor;
+        text-transform: uppercase;
+        margin-left: 14em;
+    }
+}

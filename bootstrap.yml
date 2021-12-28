@@ -1,0 +1,35 @@
+---
+
+- hosts: all
+  become: true
+  gather_facts: true
+  
+  tasks:
+
+  - name: install update package (CentOS)
+    yum:
+      update_only: yes
+      update_cache: yes
+    tags: always
+
+  - name: add user scaramouche
+    user:
+      name: scaramouche
+      groups: root
+    tags: useradd
+
+  - name: add sudoers permissions
+    copy:
+      src: scaramouche
+      dest: /etc/sudoers.d/scaramouche
+      owner: root
+      group: root
+      mode: 0440
+    tags: sudoersadd
+
+  - name: add ssh key to each server
+    authorized_key:
+      user: scaramouche
+      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDdTyEwASU8VwYO5iYMe7abkecPKa/Fml1knfdSNzIGb0kfZYnydAWSOhVnLY8eVeJ2P7uN6sfw0mtB/BXErjNuLgRQ9s7CS4FYinrJGcOk4qjV6/nx3it1ahagmfzIFInyBT1OtqTuvVfv4UvnarHhtVy+RWEO9nQnBKTO48NViNuE6uOTogK20Gi0l/S/Jn5LDlynR/bAr+WEScPph45wMAzArDyJH4LNCMKORREZycNEjCPGYlKzhLM/5b8JQMTkhK2flhT655mArCRNQtglrzCzYLyxSimo6hib6u896/ylz9YSwo0vCg1MUuDJwSxQT87sFFOUeNRULrbWxbPKe+fibjL0kTdqg2zP3jfWs0cXBXZMhzJCcSfHDvI8yOBzyoUh3Aag0OdcqUftCOiksB2+UmBjICAoOsIyrIM9EtcHgrG/EvVskmTRg+PsYqxREWyXPkXWmjbbs6LsZRCHOqkCVp+PxP/Q1YQDOt79PMZTVMPtzzcKkN96bqGtE88= default blurry"
+    tags: sshadd 
+      
