@@ -1,0 +1,26 @@
+---
+
+- hosts: all
+  become: true
+  gather_facts: true
+  tasks:
+
+  - name: add user simone to each server
+    user:
+      name: simone
+      groups: root
+    tags: always
+
+  - name: add ssh key to each server
+    authorized_key:
+      user: simone
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ597rDK5A25glYA/vebUOLVIUPZjxUVETVr4Y6xDv9p ansible-ssh"
+    tags: always
+
+  - name: add permission to simone users
+    copy:
+      src: simone_sudoers
+      dest: /etc/sudoers.d/simone
+      owner: root
+      group: root
+      mode: 0440

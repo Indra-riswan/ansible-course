@@ -23,7 +23,7 @@
       state: latest
     
   - name: start and enable webserver
-    ansible.builtin.service:
+    service:
       enabled: true
       name: httpd
       state: started
