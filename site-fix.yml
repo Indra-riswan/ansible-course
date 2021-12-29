@@ -6,8 +6,8 @@
   
   pre_tasks:
  
-  - name: update repository (CentOS)
-    yum: 
+  - name: update repository 
+    package: 
       update_cache: yes
     changed_when: false
     tags: always

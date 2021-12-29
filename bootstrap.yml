@@ -11,6 +11,14 @@
       update_only: yes
       update_cache: yes
     tags: always
+    when: ansible_distribution == "CentOS"
+
+  - name: install update package (Ubuntu)
+    package:
+      upgrade: dist
+      update_cache: yes
+    tags: always
+    when: ansible_distribution == "Ubuntu"
 
   - name: add user scaramouche
     user:
@@ -30,6 +38,6 @@
   - name: add ssh key to each server
     authorized_key:
       user: scaramouche
-      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDdTyEwASU8VwYO5iYMe7abkecPKa/Fml1knfdSNzIGb0kfZYnydAWSOhVnLY8eVeJ2P7uN6sfw0mtB/BXErjNuLgRQ9s7CS4FYinrJGcOk4qjV6/nx3it1ahagmfzIFInyBT1OtqTuvVfv4UvnarHhtVy+RWEO9nQnBKTO48NViNuE6uOTogK20Gi0l/S/Jn5LDlynR/bAr+WEScPph45wMAzArDyJH4LNCMKORREZycNEjCPGYlKzhLM/5b8JQMTkhK2flhT655mArCRNQtglrzCzYLyxSimo6hib6u896/ylz9YSwo0vCg1MUuDJwSxQT87sFFOUeNRULrbWxbPKe+fibjL0kTdqg2zP3jfWs0cXBXZMhzJCcSfHDvI8yOBzyoUh3Aag0OdcqUftCOiksB2+UmBjICAoOsIyrIM9EtcHgrG/EvVskmTRg+PsYqxREWyXPkXWmjbbs6LsZRCHOqkCVp+PxP/Q1YQDOt79PMZTVMPtzzcKkN96bqGtE88= default blurry"
-    tags: sshadd 
+      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ597rDK5A25glYA/vebUOLVIUPZjxUVETVr4Y6xDv9p ansible-ssh"
+    tags: sshadd  
       

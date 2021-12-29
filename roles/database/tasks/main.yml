@@ -1,7 +1,7 @@
 - name: install mariadb server (CentOS)
   yum:
     name:
-      - mariadb
+      - "{{ mariadb_package }}"
       - unzip
     state: latest
   tags: mariadb

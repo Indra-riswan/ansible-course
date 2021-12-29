@@ -1,20 +1,32 @@
-- name: install apache CentOS
-  yum:
-    name: httpd
+- name: install apache and php package 
+  package: 
+    name:
+      - "{{ apache_package }}"
+      - "{{ php_package }}"
     state: latest
-  tags: apache
+  tags: apache,php
 
 - name: enable and start httpd
   service:
-    name: httpd
+    name: "{{ service_name }}"
     enabled: yes
     state: started
-  tags: enable_apache
+  tags: enable,apache
 
-- name: copy landing page web to apache
+- name: edit httpd config
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: "^#ServerName"
+    line: "#ServerName projectuas.local"
+  tags: httpd_conf
+  when: ansible_distribution == "CentOS"
+  notify: restart_httpd
+
+- name: copy landing page web to webserver
   copy:
     src: files/
     dest: /var/www/html/
     owner: root
     group: root
     mode: 0755
+  tags: copy_web
